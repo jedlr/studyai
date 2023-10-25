@@ -3,8 +3,9 @@ import openai
 
 app = Flask(__name__)
 
-# Set your OpenAI API key
-openai.api_key = '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'
+# Set your OpenAI API key 
+# Carlos API
+openai.api_key = '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'
 
 @app.route('/')
 def index():
