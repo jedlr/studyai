@@ -1,0 +1,109 @@
+What Types of Studies Are Used in
+Psychological Research?
+Once a researcher has defined a hypothesis, the next issue to be addressed is the
+type of research method to be used. There are three main types of research meth-
+ods: descriptive, correlational, and experimental. These methods differ in the extent
+to which the researcher has control over the variables in the study. The amount of
+control over the variables in turn determines the type of conclusions the researcher
+can draw from the data.
+All research involves variables. A variable is something in the world that can vary
+and that the researcher can manipulate (change), measure (evaluate), or both. In a
+study of texting and driving ability, some of the variables would be number of texts
+sent, number of texts received, familiarity with the texting device, how coordinated a
+person is, and driving ability and cell phone experience.
+2.5 Descriptive Research Consists
+of Case Studies, Observation,
+and Self-Report Methods
+Descriptive research involves observing behavior to describe that behavior objec-
+tively and systematically. Descriptive research helps scientists achieve the goals of
+describing what phenomena are and (sometimes) predicting when or with what other
+­ phenomena they may occur. However, by nature, descriptive research cannot achieve
+the goals of control and explanation (only the true experimental method, described
+later in this chapter, can do that).
+Descriptive methods are widely used to assess many types of behavior. For ­ example,
+an observer performing descriptive research might record the types of foods that peo-
+ple eat in cafeterias, count the number and types of mating behaviors that penguins
+engage in during their mating season, or tally the number of times poverty or mental
+illness is mentioned during a presidential debate (FIGURE 2.7). Each of these obser-
+vations offers important information that can be used to describe current behavior
+and even predict future behavior. In no case does the investigator control the behavior
+being observed or explain why any particular behavior occurred.
+There are three basic types of descriptive research methods: case studies, observa-
+tions, and self-report methods and interviews.
+CASE STUDIES A case study is the intensive examination of an unusual person
+or organization. By intensive examination, we mean observation, recording, and
+description. An individual might be selected for intensive study if he or she has a spe-
+cial or unique aspect, such as an exceptional memory, a rare disease, or a specific type
+of brain damage. An organization might be selected for intensive study because it is
+doing something very well (such as making a lot of money) or very poorly (such as
+losing a lot of money). The goal of a case study is to describe the events or experiences
+that lead up to or result from the exceptional aspect.
+One famous case study in psychological science involves a young American man
+whose freak injury impaired his ability to remember new information (Squire, 1987).
+N.A. was born in 1938. After a brief stint in college, he joined the Air Force and was
+stationed in the Azores, where he was trained to be a radar technician. One night, he
+was assembling a model airplane in his room. His roommate was joking around with a
+miniature fencing foil, pretending to jab at the back of N.A.’s head. When N.A. turned
+around suddenly, his roommate accidentally stabbed N.A. through the nose and up
+into his brain (FIGURE 2.8).
+Although N.A. seemed to recover from his injury in most ways, he developed
+extreme problems remembering events that happened to him during the day. He could
+remember events before his accident, and so he was able to live on his own, keeping
+his house tidy and regularly cutting his lawn. It was new information that he could not
+remember. He had trouble watching television because he forgot the storylines, and
+he had difficulty holding conversations because he forgot what others had just said.
+Subsequent studies of N.A.’s brain using imaging techniques revealed damage to spe-
+cific regions not traditionally associated with memory difficulties (Squire, Amaral,
+Zola-Morgan, Kritchevsky, & Press, 1989). The case study of N.A. helped researchers
+develop new models of the brain mechanisms involved in memory.
+However, not everyone who suffers damage to this brain region experiences the
+same types of problems as N.A. Such differences highlight the major problem with
+case studies. Because only one person or organization is the focus of a case study,
+scientists cannot tell from that study if the same thing would happen to other people
+or organizations who have the same experience(s). The findings from case
+studies do not necessarily generalize, or apply to the general population.
+OBSERVATIONAL STUDIES Two main types of observational techniques
+are used in research: participant observation and naturalistic observation. In
+participant observation (FIGURE 2.9), the researcher is involved in the situa-
+tion. In naturalistic observation (FIGURE 2.10), the observer is passive, sepa-
+rated from the situation and making no attempt to change or alter ongoing
+behavior.
+These observational techniques involve the systematic assessment
+and coding of overt behavior. Suppose you hear about a person who was
+texting while walking, stumbled off a curb, and was killed by an oncoming
+truck. You develop the hypothesis that using a cell phone while walking can
+cause problems with walking. How do you operationally define “problems
+with walking”? Once you have defined your terms, you need to code the
+forms of behavior you will observe. Your coding might involve written sub-
+jective assessments (e.g., “He almost got hit by a car when he walked into
+traffic”). Alternatively, your coding might use predefined categories (e.g.,
+“1. Walked slowly,” “2. Walked into traffic,” “3. Stumbled”). Perhaps, after
+recording your data, you would create an index of impaired walking behav-
+ior by adding together the frequencies of each coded category. You might
+then compare the total number of coded behaviors when people were using
+a cell phone or not. Studies such as these have shown that cell phone use
+does impair walking ability (Schwebel et al., 2012; Stavrinos, Byington, &
+Schwebel, 2011). Pedestrian accidents—not all of them involving cell
+phones—kill more than 500 college-age students per year and injure more
+than 12,000 (National Highway Traffic Safety Administration, 2012b).
+SELF-REPORTS AND INTERVIEWS Ideally, observation is an unobtrusive
+approach for studying behavior. By contrast, asking people about themselves,
+their thoughts, their actions, and their feelings is a much more interactive
+way of collecting data. Methods of posing questions to participants include
+surveys, interviews, and questionnaires. The type of information sought
+ranges from demographic facts (e.g., ethnicity, age, religious affiliation) to
+past behaviors, personal attitudes, beliefs, and so on: “Have you ever used an
+illegal drug?” “Should people who drink and drive be jailed for a first offense?”
+“Are you comfortable sending food back to the kitchen in a restaurant when
+there is a problem?” Questions such as these require people to recall certain
+events from their lives or reflect on their mental or emotional states.
+Self-report methods, such as surveys or questionnaires, can be used to
+gather data from a large number of people in a short time (FIGURE 2.11). Ques-
+tions can be mailed out to a sample drawn from the population of interest or handed
+out in appropriate locations. They are easy to administer and cost-efficient.
+Interviews, another type of interactive method, can be used successfully with
+groups that cannot be studied through surveys or questionnaires, such as young chil-
+dren. Interviews are also helpful in gaining a more in-depth view of a respondent’s
+opinions, experiences, and attitudes. Thus, the answers from interviewees some-
+times inspire avenues of inquiry that the researchers had not planned. (For a recap of
+the types of research methods, see FIGURE 2.12.)
