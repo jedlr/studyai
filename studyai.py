@@ -1,5 +1,10 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, send_file
 import openai
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.lib.styles import getSampleStyleSheet
+from io import BytesIO
+import bleach
 
 app = Flask(__name__)
 
@@ -123,7 +128,44 @@ def find_sentence_with_keyword(text, keyword):
     
     return None
 
+""" TODO: GENERATE PDF 
+@app.route('/generate-pdf', methods=['POST'])
+def generate_pdf():
+    content = request.form.get('content')
+    questions = request.form.get('questions')
+    solutions = request.form.get('solutions')
+    
+    if content is not None:
+        # Sanitize the content, questions, and solutions using bleach
+        content = bleach.clean(content)
+        questions = bleach.clean(questions)
+        solutions = bleach.clean(solutions)
+    
+        # Create a PDF buffer
+        buffer = BytesIO()
+    
+        # Create a PDF document
+        doc = SimpleDocTemplate(buffer, pagesize=letter)
+        styles = getSampleStyleSheet()
+        elements = []
 
+        # Add content, questions, and solutions to the PDF
+        elements.append(Paragraph("Summary:", styles['Heading1']))
+        elements.append(Paragraph(content, styles['Normal']))
+        elements.append(Paragraph("Comprehension Questions:", styles['Heading1']))
+        elements.append(Paragraph(questions, styles['Normal']))
+        elements.append(Paragraph("Solutions:", styles['Heading1']))
+        elements.append(Paragraph(solutions, styles['Normal']))
+
+        doc.build(elements)
+        buffer.seek(0)
+
+        return send_file(buffer, as_attachment=True, download_name='summary.pdf', mimetype='application/pdf')
+    else:
+        # Handle the case when 'content' is None and return an error response
+        return jsonify({'error': 'No content to generate PDF'})
+
+"""
 
 if __name__ == '__main__':
     app.run(debug=True)

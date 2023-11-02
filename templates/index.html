@@ -9,10 +9,8 @@
     </style>
 </head>
 <body>
-    <body style="background-color: rgb(255, 255, 255);">
-        <h1 style="color: rgb(84, 184, 230);">Study AI</h1>
-    </body>
-    <i> Step 1: Please upload the file you wish to study :)</i><br><br>
+    <h1 style="color: rgb(84, 184, 230);">Study AI</h1>
+    <i>Step 1: Please upload the file you wish to study :)</i><br><br>
     <form id="inputForm" method="POST" enctype="multipart/form-data">
         <input type="file" name="file" id="file" required>
         <button type="submit">Upload File</button>
@@ -21,34 +19,33 @@
     <div id="result">
         <h3>Summary</h3>
         <ul id="summary"></ul>
-        <!-- TODO -->
         <button id="newSumButton">Get New Summary</button>
         <br>
         <hr style="width:25%;text-align:left;margin-left:0">
-
-
         <h3>Comprehension Questions</h3>
         <ul id="questions"></ul>
-        <!-- TODO -->
         <button id="newQuestionButton">Get New Question</button>
         <br>
         <hr style="width:25%;text-align:left;margin-left:0">
-
         <h3>Solutions</h3>
         <ul id="solutions"></ul>
-        <!-- TODO -->
         <button id="newSolButton">Get New Solution</button>
         <br>
         <hr style="width:25%;text-align:left;margin-left:0">
-
         <h3>Citations</h3>
-        <ul id="citations"></ul>  
+        <ul id="citations"></ul>
         <hr style="width:25%;text-align:left;margin-left:0">
         <br>
         <div id="loading" style="font-size: 30px;">Loading...</div>
-
+        <!-- Add a Download PDF button -->
+        <button id="downloadPDFButton" style="display: none;">Download PDF</button>
     </div>
-
+       <!--TODO: PDF GENERATION-->
+        <!-- Add the form for generating and downloading the PDF -->
+        <form id="pdfForm" action="/generate-pdf" method="POST">
+            <input type="hidden" name="content" id="pdfContent">
+        </form>
+    
     <script>
         document.getElementById("inputForm").addEventListener("submit", function (event) {
             event.preventDefault();
@@ -80,13 +77,27 @@
                     // Display citations
                     const citationsElement = document.getElementById("citations");
                     citationsElement.innerHTML = data.citations.map(citation => `<li>${citation}</li>`).join("<br>");
+
+                    //TODO: PDF GENERATION
+                    // Show the Download PDF button
+                    document.getElementById("downloadPDFButton").style.display = "block";
                 })
                 .catch((error) => {
                     console.error("Error:", error);
-                    document.getElementById("loading").style.display = "none"; // Hide loading sign
+                    document.getElementById("loading").style_display = "none"; // Hide loading sign
                 });
         });
+
+//TODO: PDF GENERATION
+// Add an event listener to trigger PDF generation and download
+document.getElementById("downloadPDFButton").addEventListener("click", function () {
+            // Set the "content" input field with the PDF content
+            const pdfContent = document.getElementById("summary").innerHTML;
+            document.getElementById("pdfContent").value = pdfContent;
+
+            // Submit the form to generate the PDF
+            document.getElementById("pdfForm").submit();
+        });
     </script>
-    
 </body>
 </html>
