@@ -19,19 +19,26 @@
     <div id="result">
         <h3>Summary</h3>
         <ul id="summary"></ul>
+
+        <!-- TODO -->
         <button id="newSumButton">Get New Summary</button>
         <br>
         <hr style="width:25%;text-align:left;margin-left:0">
+
+        <!-- TODO -->
         <h3>Comprehension Questions</h3>
         <ul id="questions"></ul>
         <button id="newQuestionButton">Get New Question</button>
         <br>
         <hr style="width:25%;text-align:left;margin-left:0">
+
+        <!-- TODO -->
         <h3>Solutions</h3>
         <ul id="solutions"></ul>
         <button id="newSolButton">Get New Solution</button>
         <br>
         <hr style="width:25%;text-align:left;margin-left:0">
+        
         <h3>Citations</h3>
         <ul id="citations"></ul>
         <hr style="width:25%;text-align:left;margin-left:0">
@@ -84,7 +91,7 @@
                 })
                 .catch((error) => {
                     console.error("Error:", error);
-                    document.getElementById("loading").style_display = "none"; // Hide loading sign
+                    document.getElementById("loading").style.display = "none"; // Hide loading sign
                 });
         });
 
