@@ -1,11 +1,28 @@
 from flask import Flask, request, render_template, jsonify
 import openai
+from transformers import AutoTokenizer, AutoModel
+import torch
+import torch.nn.functional as F
+from sentence_transformers import SentenceTransformer
 
 app = Flask(__name__)
 
-# Set your OpenAI API key 
+# Set your OpenAI API key
 # Carlos API
 openai.api_key = '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'
+
+# Load the Sentence Transformers model
+sentence_transformer_model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
+
+# Load the Hugging Face model and tokenizer
+hf_model = AutoModel.from_pretrained('sentence-transformers/all-mpnet-base-v2')
+hf_tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-mpnet-base-v2')
+
+# Mean Pooling - Take attention mask into account for correct averaging
+def mean_pooling(model_output, attention_mask):
+    token_embeddings = model_output[0]  # First element of model_output contains all token embeddings
+    input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+    return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
 
 @app.route('/')
 def index():
@@ -33,28 +50,10 @@ def process():
 
         return jsonify({'result': summary, 'questions': questions, 'solutions': solutions, 'citations': citations})
 
-@app.route('/new-comprehension-question', methods=['GET'])
-def new_comprehension_question():
-    if 'file' not in request.files:
-        return jsonify({'error': 'No file part for new question'})
-    
-    file = request.files['file']
-
-    if file.filename == '':
-        return jsonify({'error': 'No selected file for new question'})
-
-    if file:
-        file_content = file.read()
-
-        # Generate a new comprehension question using OpenAI
-        new_question = generate_q(file_content)
-
-        return jsonify({'newQuestion': new_question[0]})
-
 def generate_summary(text):
     # Decode the file content from bytes to a string
     text = text.decode('utf-8')
-    
+
     # Use the OpenAI API to generate a summary
     response = openai.Completion.create(
         engine="text-davinci-002",
@@ -69,8 +68,6 @@ def generate_summary(text):
 
     return bullet_points
 
-
-
 def generate_q(text):
     # Use the OpenAI API to generate comprehension questions
     response = openai.Completion.create(
@@ -81,7 +78,7 @@ def generate_q(text):
     )
 
     questions = [choice.text for choice in response.choices]
-    
+
     return questions
 
 def generate_sol(questions, text):
@@ -95,40 +92,36 @@ def generate_sol(questions, text):
             n=1,
         )
         solutions.append(response.choices[0].text)
-    
+
     return solutions
 
 def generate_citation(solutions, file_content):
     # Decode the file content from bytes to a string
     text = file_content.decode('utf-8')
-    
-    # Generate citations for the solutions by searching for solution keywords in the text
+
+    # Generate citations based on sentence embeddings
     citations = []
 
-    for solution in solutions:
-        # Use a simple text search to find the sentence containing the solution keyword
-        solution_sentence = find_sentence_with_keyword(text, solution)
-        
-        if solution_sentence:
-            citations.append(solution_sentence)
-        else:
-            citations.append("Citation not found for this solution")
-    
-    return citations
-
-
-def find_sentence_with_keyword(text, keyword):
-    # Split the text into sentences
+    # Tokenize and compute token embeddings for sentences in the text
     sentences = text.split('.')
-    
-    # Find the sentence containing the keyword
-    for sentence in sentences:
-        if keyword in sentence:
-            return sentence.strip() + '.'
-    
-    return None
+    sentence_embeddings = sentence_transformer_model.encode(sentences, convert_to_tensor=True)
 
+    for solution in solutions:
+        # Calculate the embedding for the solution
+        solution_tokens = hf_tokenizer(solution, return_tensors='pt', padding=True, truncation=True)
+        with torch.no_grad():
+            model_output = hf_model(**solution_tokens)
+        solution_embedding = mean_pooling(model_output, solution_tokens['attention_mask'])
 
+        # Find the most similar sentence based on cosine similarity
+        similarity_scores = F.cosine_similarity(sentence_embeddings, solution_embedding)
+        best_match_idx = torch.argmax(similarity_scores)
+
+        # Use the best-matching sentence as the citation
+        citation_sentence = sentences[best_match_idx].strip() + '.'
+        citations.append(citation_sentence)
+
+    return citations
 
 if __name__ == '__main__':
     app.run(debug=True)
