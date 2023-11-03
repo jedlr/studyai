@@ -112,15 +112,21 @@ def generate_citation(solutions, file_content):
     return citations
 
 
-def find_sentence_with_keyword(text, keyword):
+def find_sentence_with_keyword(text, keywords):
     # Split the text into sentences
+    print(text)
+    print(keywords)
     sentences = text.split('.')
-    
+    keyword = keywords.split()
+
     # Find the sentence containing the keyword
     for sentence in sentences:
-        if keyword in sentence:
-            return sentence.strip() + '.'
+        for keyword in keywords:
+            if keyword in sentence:
+                print("Keyword Found")
+                return sentence.strip() + '.'
     
+    print("Keyword Not Found")
     return None
 
 

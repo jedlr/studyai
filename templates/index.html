@@ -9,22 +9,21 @@
     </style>
 </head>
 <body>
-    <body style="background-color: rgb(255, 255, 255);">
-        <h1 style="color: rgb(84, 184, 230);">Study AI</h1>
-    </body>
+    <body style="text-align: center; background-color: rgb(122, 215, 255);">
+        <h1 style="text-align: center; rgb(84, 184, 230);">Study AI</h1>
     <i> Step 1: Please upload the file you wish to study :)</i><br><br>
     <form id="inputForm" method="POST" enctype="multipart/form-data">
         <input type="file" name="file" id="file" required>
         <button type="submit">Upload File</button>
     </form>
-    <hr style="width:25%;text-align:left;margin-left:0">
+    <hr style="width:100%;text-align:center;margin: left 2px;">
     <div id="result">
         <h3>Summary</h3>
         <ul id="summary"></ul>
         <!-- TODO -->
         <button id="newSumButton">Get New Summary</button>
         <br>
-        <hr style="width:25%;text-align:left;margin-left:0">
+        <hr style="width:100%;text-align:center;margin: left 2px;">
 
 
         <h3>Comprehension Questions</h3>
@@ -32,23 +31,23 @@
         <!-- TODO -->
         <button id="newQuestionButton">Get New Question</button>
         <br>
-        <hr style="width:25%;text-align:left;margin-left:0">
+        <hr style="width:100%;text-align:center;margin: left 2px;">
 
         <h3>Solutions</h3>
         <ul id="solutions"></ul>
         <!-- TODO -->
         <button id="newSolButton">Get New Solution</button>
         <br>
-        <hr style="width:25%;text-align:left;margin-left:0">
+        <hr style="width:100%;text-align:center;margin: left 2px;">
 
         <h3>Citations</h3>
         <ul id="citations"></ul>  
-        <hr style="width:25%;text-align:left;margin-left:0">
+        <hr style="width:100%;text-align:center;margin: left 2px;">
         <br>
         <div id="loading" style="font-size: 30px;">Loading...</div>
 
     </div>
-
+    </body>
     <script>
         document.getElementById("inputForm").addEventListener("submit", function (event) {
             event.preventDefault();
