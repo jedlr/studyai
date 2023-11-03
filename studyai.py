@@ -65,7 +65,7 @@ def generate_summary(text):
     result_summary = response.choices[0].text.strip()
 
     # Split the summary into bullet points
-    bullet_points = [point.strip() for point in result_summary.split('\n')]
+    bullet_points = [point.strip('-') for point in result_summary.split('\n')]
 
     return bullet_points
 
