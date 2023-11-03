@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, jsonify
+from sentence_transformers import SentenceTransformer
 import openai
 
 app = Flask(__name__)
@@ -65,7 +66,7 @@ def generate_summary(text):
     result_summary = response.choices[0].text.strip()
 
     # Split the summary into bullet points
-    bullet_points = [point.strip('-') for point in result_summary.split('\n')]
+    bullet_points = [point.strip('-', ':') for point in result_summary.split('\n')]
 
     return bullet_points
 
@@ -117,16 +118,34 @@ def generate_citation(solutions, file_content):
     return citations
 
 
-def find_sentence_with_keyword(text, keyword):
+def find_sentence_with_keyword(text, keywords):
     # Split the text into sentences
+    #print(text)
+    #print(keywords)
     sentences = text.split('.')
-    
+    keyword = keywords.split()
+
+    model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
+    embeddings = model.encode(sentences)
+    print(embeddings)
+
+    sentence_to_embedding = dict(zip(sentences, embeddings))
+
+    # To print out the text corresponding to an embedding
+    target_embedding = embeddings[2]  # Replace with the index of the embedding you want to retrieve
+    text = next(key for key, value in sentence_to_embedding.items() if (value == target_embedding).all())
+    print(text)
+
+    """"
     # Find the sentence containing the keyword
     for sentence in sentences:
-        if keyword in sentence:
-            return sentence.strip() + '.'
-    
-    return None
+        for keyword in keywords:
+            if keyword in sentence:
+                #print("Keyword Found")
+                return sentence.strip() + '.'
+    """
+    #print("Keyword Not Found")
+    return text
 
 
 
