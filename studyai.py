@@ -63,7 +63,12 @@ def generate_summary(text):
         n=1,
     )
     result_summary = response.choices[0].text.strip()
-    return result_summary
+
+    # Split the summary into bullet points
+    bullet_points = [point.strip() for point in result_summary.split('\n')]
+
+    return bullet_points
+
 
 
 def generate_q(text):
