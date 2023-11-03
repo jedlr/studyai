@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, jsonify
+from sentence_transformers import SentenceTransformer
 import openai
 
 app = Flask(__name__)
@@ -115,19 +116,31 @@ def generate_citation(solutions, file_content):
 
 def find_sentence_with_keyword(text, keywords):
     # Split the text into sentences
-    print(text)
-    print(keywords)
+    #print(text)
+    #print(keywords)
     sentences = text.split('.')
     keyword = keywords.split()
 
+    model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
+    embeddings = model.encode(sentences)
+    print(embeddings)
+
+    sentence_to_embedding = dict(zip(sentences, embeddings))
+
+    # To print out the text corresponding to an embedding
+    target_embedding = embeddings[1]  # Replace with the index of the embedding you want to retrieve
+    text = next(key for key, value in sentence_to_embedding.items() if (value == target_embedding).all())
+    print(text)
+
+    """"
     # Find the sentence containing the keyword
     for sentence in sentences:
         for keyword in keywords:
             if keyword in sentence:
-                print("Keyword Found")
+                #print("Keyword Found")
                 return sentence.strip() + '.'
-    
-    print("Keyword Not Found")
+    """
+    #print("Keyword Not Found")
     return None
 
 
