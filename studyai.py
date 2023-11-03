@@ -63,6 +63,7 @@ def generate_summary(text):
         n=1,
     )
     result_summary = response.choices[0].text.strip()
+    
     return result_summary
 
 
