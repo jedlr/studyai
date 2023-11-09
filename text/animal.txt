@@ -1,0 +1,23 @@
+4.4.1 Categorization and learning
+Animals can generalize from past experience to form general categories. For
+example, pigeons trained on photographs of trees can generalize a concept
+of “tree,” such that they recognize novel pictures of trees, detect partially
+concealed trees, and silhouettes of trees. While one might think that “tree”
+is partly an innate concept for a bird, pigeons show similarly impressive
+competence for underwater pictures of fish, or for arbitrary shapes like
+the letter “A” (see review in Vauclair, 1996). While it is possible that some
+categories are innate (e.g. conspecific faces or calls), many are learned,
+and simple associative learning provides a precursor for some of the simple
+aspects of reference in human language that are shared among all vertebrates.
+4.4.2 Memory
+Animals can retain information about an object or a sequence after it has
+disappeared. Early work showed that monkeys and apes readily remember
+under which of several cups food had been hidden (Tinklepaugh, 1928).
+Pigeons can remember at least 160 meaningless “squiggles,” or 320 natural
+scenes, for at least a year (Vaughan and Greene, 1984). In the so-called
+delayed matchto sampletask, monkeys presented with an object can correctly
+report whether a second object or sequence is the same or different (Fobes
+and King, 1982).
+4.4.3 Time and planning
+The adaptive value of memory is that it helps animals make decisions and
+plan future behavior. Animals can predict where a rotating clock hand

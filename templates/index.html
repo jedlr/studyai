@@ -11,8 +11,14 @@
         padding-left: 0; /* Reset default padding */
     }
 
-    #summary li {
-        margin-left: 20px; /* Adjust the left margin for better alignment */
+    #summary li,
+    #questions li,
+    #solutions li,
+    #citations li {
+    font-size: 24px; /* Adjust the font size for bullet points */
+    list-style-position: inside;
+    padding-left: 0;
+    margin-left: 20px;
     }
 
      /* CSS styles for list items (questions, solutions, and citations) */
@@ -26,15 +32,15 @@
     </style>
 </head>
 <body style="text-align: center; background-color: rgb(255, 255, 255);">
-    <h1 style="text-align: center; color: rgb(84, 184, 230);">Study AI</h1>
-    <i>Step 1: Please upload the file you wish to study :)</i><br><br>
+    <h1 style="text-align: center; color: rgb(84, 184, 230); font-size: 60px;">Study AI</h1>
+    <i style= "font-size: 30px;">Step 1: Please upload the file you wish to study :)</i><br><br>
     <form id="inputForm" method="POST" enctype="multipart/form-data">
         <input type="file" name="file" id="file" required>
         <button type="submit">Upload File</button>
     </form>
     <hr style="width:100%;text-align:center;margin-left:2px;">
     <div id="result" style="float: left; width: 50%;">
-        <h3>Summary</h3>
+        <h3 style="font-size: 30px;" >Summary</h3>
         <ul id="summary" style="text-align: start;"></ul>
         <!-- TODO -->
         <button id="newSumButton">Get New Summary</button>
@@ -42,21 +48,21 @@
         <hr style="width:100%;text-align:center;margin-left:2px;">
     </div>
     <div id="comprehensionDiv" style="float: right; width: 50%;">
-        <h3>Comprehension Questions</h3>
+        <h3 style="font-size: 30px;">Comprehension Questions</h3>
         <ul id="questions"></ul>
         <!-- TODO -->
         <button id="newQuestionButton">Get New Question</button>
         <br>
         <hr style="width:100%;text-align:center;margin-left:2px;">
 
-        <h3>Solutions</h3>
+        <h3 style="font-size: 30px;">Solutions</h3>
         <ul id="solutions"></ul>
         <!-- TODO -->
         <button id="newSolButton">Get New Solution</button>
         <br>
         <hr style="width:100%;text-align:center;margin-left:2px;">
 
-        <h3>Citations</h3>
+        <h3 style="font-size: 30px;">Citations</h3>
         <ul id="citations"></ul>
         <hr style="width:100%;text-align:center;margin-left:2px;">
         <br>
