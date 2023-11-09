@@ -33,14 +33,15 @@
         <button type="submit">Upload File</button>
     </form>
     <hr style="width:100%;text-align:center;margin-left:2px;">
-    <div id="result">
+    <div id="result" style="float: left; width: 50%;">
         <h3>Summary</h3>
-        <ul id="summary"></ul>
+        <ul id="summary" style="text-align: start;"></ul>
         <!-- TODO -->
         <button id="newSumButton">Get New Summary</button>
         <br>
         <hr style="width:100%;text-align:center;margin-left:2px;">
-
+    </div>
+    <div id="comprehensionDiv" style="float: right; width: 50%;">
         <h3>Comprehension Questions</h3>
         <ul id="questions"></ul>
         <!-- TODO -->
@@ -98,6 +99,97 @@
                     console.error("Error:", error);
                     document.getElementById("loading").style.display = "none"; // Hide loading sign
                 });
+        });
+    </script>
+    <script>
+        document.getElementById("newSumButton").addEventListener("click", function () {
+            // Show the loading sign
+            document.getElementById("loading").style.display = "block";
+    
+            // Clear the previous summary by setting its content to an empty string
+            const summaryElement = document.getElementById("summary");
+            summaryElement.innerHTML = "";
+    
+            // Make a request to your Flask application's /process endpoint
+            fetch("/process", {
+                method: "POST",
+                body: new FormData(document.getElementById("inputForm")), // Use the form data
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                // Hide the loading sign
+                document.getElementById("loading").style.display = "none";
+    
+                // Update the content of the #summary element with the new summary
+                const summaryElement = document.getElementById("summary");
+                summaryElement.innerHTML = data.result.map(summary => `<li>${summary}</li>`).join("<br>");
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                // Hide the loading sign in case of an error
+                document.getElementById("loading").style.display = "none";
+            });
+        });
+    </script>
+    
+    <script>
+        document.getElementById("newQuestionButton").addEventListener("click", function () {
+            // Show the loading sign
+            document.getElementById("loading").style.display = "block";
+    
+            // Clear the previous questions by setting the content of the #questions element to an empty string
+            const questionsElement = document.getElementById("questions");
+            questionsElement.innerHTML = "";
+
+            // Make a request to your Flask application's /process endpoint
+            fetch("/process", {
+                method: "POST",
+                body: new FormData(document.getElementById("inputForm")), // Use the form data
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                // Hide the loading sign
+                document.getElementById("loading").style.display = "none";
+    
+                // Update the content of the #questions element with the new questions
+                const questionsElement = document.getElementById("questions");
+                questionsElement.innerHTML = data.questions.map(question => `<li>${question}</li>`).join("<br>");
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                // Hide the loading sign in case of an error
+                document.getElementById("loading").style.display = "none";
+            });
+        });
+    </script>
+    <script>
+        document.getElementById("newSolButton").addEventListener("click", function () {
+            // Show the loading sign
+            document.getElementById("loading").style.display = "block";
+    
+            // Clear the previous solutions by setting the content of the #solutions element to an empty string
+            const solutionsElement = document.getElementById("solutions");
+            solutionsElement.innerHTML = "";
+
+            // Make a request to your Flask application's /process endpoint
+            fetch("/process", {
+                method: "POST",
+                body: new FormData(document.getElementById("inputForm")), // Use the form data
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                // Hide the loading sign
+                document.getElementById("loading").style.display = "none";
+    
+                // Update the content of the #solutions element with the new solutions
+                const solutionsElement = document.getElementById("solutions");
+                solutionsElement.innerHTML = data.solutions.map(solution => `<li>${solution}</li>`).join("<br>");
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                // Hide the loading sign in case of an error
+                document.getElementById("loading").style.display = "none";
+            });
         });
     </script>
 </html>
