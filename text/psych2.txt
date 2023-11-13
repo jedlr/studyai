@@ -1,0 +1,122 @@
+How Does the Nervous System
+Operate?
+The nervous system’s response to the world around us is responsible for everything
+we think, feel, or do. Essentially, each of us is a nervous system. The entire nervous
+system is divided into two basic units: the central nervous system and the peripheral nervous system. The central nervous system (CNS) consists of the brain and the
+spinal cord, both of which contain massive numbers of neurons (FIGURE 3.1). The
+peripheral nervous system (PNS) consists of all the other nerve cells in the rest of the
+body. The CNS and PNS are anatomically separate, but their functions are highly
+interdependent. The PNS sends a variety of information to the CNS. The CNS organizes and evaluates that information and then directs the PNS to perform specific
+behaviors or make bodily adjustments.
+Neurons Are the Basic Units of
+the Nervous System
+The basic units of this system are the nerve cells, called neurons (FIGURE 3.2). These
+cells receive, integrate, and transmit information in the nervous system. Complex net-
+works of neurons sending and receiving signals are the functional basis of all psycho-
+logical activity. Although the actions of single neurons are simple to describe, human
+complexity results from billions of neurons. Each neuron communicates with tens of
+thousands of other neurons. Neurons do not communicate randomly or arbitrarily,
+however. They communicate selectively with other neurons to form circuits, or neural
+networks. These networks develop through genetic influence, maturation and experience, and repeated firing. In other words, alliances form among groups of neurons.
+As discussed more fully later in this chapter, the PNS includes the somatic and
+autonomic nervous systems. The somatic component of the PNS is involved in voluntary behavior, such as when you reach for an object to see how it feels. The autonomic
+component of the PNS is responsible for the less voluntary actions of your body, such
+as controlling heart rate and other bodily functions.
+FUNCTIONS OF NEURONS Neurons are specialized
+for communication. That is, unlike other cells in the body,
+nerve cells are excitable: They are powered by electrical impulses and communicate with other nerve cells
+through chemical signals. During the reception phase,
+neurons take in the chemical signals from neighbor-
+ing neurons. During integration, incoming signals are
+assessed. During transmission, neurons pass their own
+signals to yet other receiving neurons.
+Some neurons (sensory neurons) detect information from the physical world and pass that information
+along to the brain, usually through the spinal cord. To
+get a sense of how fast that process can work, think of
+the last time you touched something hot or accidentally pricked yourself with a sharp object, such as a tack.
+Those signals triggered your body’s nearly instantaneous
+response and sensory experience of the impact. The sensory nerves that provide information from the skin and
+muscles are called somatosensory nerves. (This term
+comes from the Greek for “body sense.” It means sensations experienced from within the body.) Other neurons
+(motor neurons) direct muscles to contract or relax,
+thereby producing movement.
+Sensory and motor neurons work together to control
+movement. For instance, if you are using a pen to take
+notes as you read these words, you are contracting and
+relaxing your hand muscles and finger muscles to adjust
+your fingers’ pressure on the pen. When you want to use
+the pen, your brain sends a message via motor neurons
+to your finger muscles so they move in specific ways.
+Receptors in both your skin and your muscles send back
+messages through sensory neurons to help determine
+how much pressure is needed to hold the pen. This symphony of neural communication for a task as simple as using a pen is remarkable,
+yet most of us employ motor control so easily that we rarely think about it. In fact,
+our reflexes, automatic motor responses, occur before we even think about those
+responses. For each reflex action, a handful of neurons simply convert sensation
+into action.
+NEURON STRUCTURE In addition to performing different functions, neurons have
+a wide assortment of shapes and sizes. A typical neuron has four structural regions
+that participate in communication functions: the dendrites, the cell body, the axon,
+and the terminal buttons (FIGURE 3.3). The dendrites are short, branchlike append-
+ages that detect chemical signals from neighboring neurons. In the cell body, also
+known as the soma (Greek for “body”), the information received via the dendrites
+from thousands of other neurons is collected and integrated.
+Once the incoming information from many other neurons has been integrated
+in the cell body, electrical impulses are transmitted along a long, narrow outgrowth
+known as the axon. Axons vary tremendously in length, from a few millimeters to
+more than a meter. The longest axons stretch from the spinal cord to the big toe.
+You may have heard the term nerve in reference to a “pinched nerve.” In this con-
+text, a nerve is a bundle of axons that carry information between the brain and other specific locations in the body. At the end of the axon are knoblike structures called
+terminal buttons.
+The site where chemical communication occurs between neurons is called the
+synapse. Since neurons do not touch one another, they communicate by sending
+chemicals into the synapse, a tiny gap between the terminal buttons of the “sending”
+neuron and the dendrites of the “receiving” neurons. Chemicals leave one neuron,
+cross the ­ synapse, and pass signals along to the dendrites of other neurons.
+The outer surface of a neuron is a membrane, a fatty barrier that does not dissolve
+in the watery environment inside and outside the neuron. The membrane is semipermeable. In other words, some substances move in or out of the membrane, and some
+do not. Located on the membrane are ion channels. These specialized pores allow ions
+to pass in and out of the cell when the neuron transmits signals down the axon. Ions
+are electrically charged molecules, some charged negatively and some charged positively. By controlling the movement of ions, the membrane plays an important role
+in communication between neurons: It regulates the concentration of electrically
+charged molecules that are the basis of the neuron’s electrical activity.
+central nervous system (CNS)
+The brain and the spinal cord.
+peripheral nervous system (PNS)
+All nerve cells in the body that are not
+part of the central nervous system.
+The peripheral nervous system
+includes the somatic and autonomic
+nervous systems.
+neurons
+The basic units of the nervous system;
+cells that receive, integrate, and
+transmit information in the nervous
+system. They operate through
+electrical impulses, communicate
+with other neurons through chemical
+signals, and form neural networks.
+dendrites
+Branchlike extensions of the neuron
+that detect information from other
+neurons.
+cell body
+The site in the neuron where
+information from thousands of other
+neurons is collected and integrated.
+axon
+A long, narrow outgrowth of a neuron
+by which information is conducted
+from the cell body to the terminal
+buttons.
+terminal buttons
+At the ends of axons, small nodules
+that release chemical signals from the
+neuron into the synapse.
+synapse
+The gap between the terminal
+buttons of a “sending” neuron
+and the dendrites of a “receiving”
+neuron; the site at which chemical
+communication occurs between
+neurons.

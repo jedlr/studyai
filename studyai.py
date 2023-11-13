@@ -7,6 +7,7 @@ app = Flask(__name__)
 # Carlos API
 openai.api_key = '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'
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -33,6 +34,7 @@ def process():
 
         return jsonify({'result': summary, 'questions': questions, 'solutions': solutions, 'citations': citations})
 
+
 @app.route('/new-comprehension-question', methods=['GET'])
 def new_comprehension_question():
     if 'file' not in request.files:
@@ -55,6 +57,7 @@ def generate_summary(text):
     # Decode the file content from bytes to a string
     text = text.decode('utf-8')
     
+
     # Use the OpenAI API to generate a summary
     response = openai.Completion.create(
         engine="text-davinci-002",
@@ -63,7 +66,9 @@ def generate_summary(text):
         n=1,
     )
     result_summary = response.choices[0].text.strip()
+
     return result_summary
+
 
 
 def generate_q(text):
@@ -76,7 +81,7 @@ def generate_q(text):
     )
 
     questions = [choice.text for choice in response.choices]
-    
+
     return questions
 
 def generate_sol(questions, text):
@@ -90,12 +95,13 @@ def generate_sol(questions, text):
             n=1,
         )
         solutions.append(response.choices[0].text)
-    
+
     return solutions
 
 def generate_citation(solutions, file_content):
     # Decode the file content from bytes to a string
     text = file_content.decode('utf-8')
+
     
     # Generate citations for the solutions by searching for solution keywords in the text
     citations = []

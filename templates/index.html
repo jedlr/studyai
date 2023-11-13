@@ -6,6 +6,7 @@
         #loading {
             display: none;
         }
+
     </style>
 </head>
 <body>
@@ -13,18 +14,23 @@
         <h1 style="color: rgb(84, 184, 230);">Study AI</h1>
     </body>
     <i> Step 1: Please upload the file you wish to study :)</i><br><br>
+
     <form id="inputForm" method="POST" enctype="multipart/form-data">
         <input type="file" name="file" id="file" required>
         <button type="submit">Upload File</button>
     </form>
+
     <hr style="width:25%;text-align:left;margin-left:0">
+
     <div id="result">
         <h3>Summary</h3>
         <ul id="summary"></ul>
         <!-- TODO -->
         <button id="newSumButton">Get New Summary</button>
         <br>
+
         <hr style="width:25%;text-align:left;margin-left:0">
+
 
 
         <h3>Comprehension Questions</h3>
@@ -32,13 +38,16 @@
         <!-- TODO -->
         <button id="newQuestionButton">Get New Question</button>
         <br>
+
         <hr style="width:25%;text-align:left;margin-left:0">
+
 
         <h3>Solutions</h3>
         <ul id="solutions"></ul>
         <!-- TODO -->
         <button id="newSolButton">Get New Solution</button>
         <br>
+
         <hr style="width:25%;text-align:left;margin-left:0">
 
         <h3>Citations</h3>
@@ -49,17 +58,20 @@
 
     </div>
 
+
     <script>
         document.getElementById("inputForm").addEventListener("submit", function (event) {
             event.preventDefault();
             const fileInput = document.getElementById("file");
             const file = fileInput.files[0];
+
     
             const formData = new FormData();
             formData.append('file', file);
     
             document.getElementById("loading").style.display = "block"; // Show loading sign
     
+
             fetch("/process", {
                 method: "POST",
                 body: formData,
@@ -67,6 +79,7 @@
                 .then((response) => response.json())
                 .then((data) => {
                     document.getElementById("loading").style.display = "none"; // Hide loading sign
+
                     document.getElementById("summary").innerHTML = data.result.replace(/\* /g, '<br>* ');
     
                     // Display comprehension questions
@@ -77,6 +90,7 @@
                     const solutionsElement = document.getElementById("solutions");
                     solutionsElement.innerHTML = data.solutions.map(solution => `<li>${solution}</li>`).join("<br>");
     
+
                     // Display citations
                     const citationsElement = document.getElementById("citations");
                     citationsElement.innerHTML = data.citations.map(citation => `<li>${citation}</li>`).join("<br>");
@@ -89,4 +103,5 @@
     </script>
     
 </body>
+
 </html>
