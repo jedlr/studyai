@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # Set your OpenAI API key
 # Carlos API
-openai.api_key = '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'
+openai.api_key = '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'
 
 # Load the Sentence Transformers model
 sentence_transformer_model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
