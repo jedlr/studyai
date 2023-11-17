@@ -278,28 +278,34 @@
 
 <script>
     function copyAllToClipboard() {
-        const summaryList = document.getElementById("summary").getElementsByTagName("li");
-        const questionsList = document.getElementById("questions").getElementsByTagName("li");
-        const solutionsList = document.getElementById("solutions").getElementsByTagName("li");
-        const citationsList = document.getElementById("citations").getElementsByTagName("li");
+    const summaryList = document.getElementById("summary").getElementsByTagName("li");
+    const questionsList = document.getElementById("questions").getElementsByTagName("li");
+    const solutionsList = document.getElementById("solutions").getElementsByTagName("li");
+    const citationsList = document.getElementById("citations").getElementsByTagName("li");
 
-        const formatList = (title, list) => {
-            return `${title}:\n${Array.from(list).map(item => `- ${item.textContent}`).join('\n')}`;
-        };
+    // Customize which lines to include or exclude
+    const filteredSummary = Array.from(summaryList).map(item => `- ${item.textContent}`).filter(line => !line.includes("excludeThis"));
+    const filteredQuestions = Array.from(questionsList).map(item => `- ${item.textContent.replace(/\n/g, ' ')}`);
+    const filteredSolutions = Array.from(solutionsList).map(item => `- ${item.textContent.replace(/\n/g, ' ')}`);
+    const filteredCitations = Array.from(citationsList).map(item => `- ${item.textContent}`);
 
-        const allText = `${formatList('Summary', summaryList)}
-                        \n\n${formatList('Questions', questionsList)}
-                        \n\n${formatList('Solutions', solutionsList)}
-                        \n\n${formatList('Citations', citationsList)}`;
+    // Concatenate the filtered content
+    const allText = `Summary:\n${filteredSummary.join('\n')}
+                    \n\nQuestions:\n${filteredQuestions.join('\n')}
+                    \n\nSolutions:\n${filteredSolutions.join('\n')}
+                    \n\nCitations:\n${filteredCitations.join('\n')}`;
 
-        navigator.clipboard.writeText(allText)
-            .then(() => {
-                alert('All sections copied to clipboard!');
-            })
-            .catch(err => {
-                console.error('Unable to copy to clipboard', err);
-            });
-    }
+    navigator.clipboard.writeText(allText)
+        .then(() => {
+            alert('Filtered sections copied to clipboard!');
+        })
+        .catch(err => {
+            console.error('Unable to copy to clipboard', err);
+        });
+}
+
+
+
 </script>
 
 
