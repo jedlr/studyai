@@ -277,23 +277,30 @@
 </script>
 
 <script>
-        function copyAllToClipboard() {
-            const summaryText = document.getElementById("summary").innerText;
-            const questionsText = document.getElementById("questions").innerText;
-            const solutionsText = document.getElementById("solutions").innerText;
-            const citationsText = document.getElementById("citations").innerText;
+    function copyAllToClipboard() {
+        const summaryList = document.getElementById("summary").getElementsByTagName("li");
+        const questionsList = document.getElementById("questions").getElementsByTagName("li");
+        const solutionsList = document.getElementById("solutions").getElementsByTagName("li");
+        const citationsList = document.getElementById("citations").getElementsByTagName("li");
 
-            const allText = `Summary:\n${summaryText}\n\nQuestions:\n${questionsText}\n\nSolutions:\n${solutionsText}\n\nCitations:\n${citationsText}`;
+        const formatList = (title, list) => {
+            return `${title}:\n${Array.from(list).map(item => `- ${item.textContent}`).join('\n')}`;
+        };
 
-            navigator.clipboard.writeText(allText)
-                .then(() => {
-                    alert('All sections copied to clipboard!');
-                })
-                .catch(err => {
-                    console.error('Unable to copy to clipboard', err);
-                });
-        }
-    </script>
+        const allText = `${formatList('Summary', summaryList)}
+                        \n\n${formatList('Questions', questionsList)}
+                        \n\n${formatList('Solutions', solutionsList)}
+                        \n\n${formatList('Citations', citationsList)}`;
+
+        navigator.clipboard.writeText(allText)
+            .then(() => {
+                alert('All sections copied to clipboard!');
+            })
+            .catch(err => {
+                console.error('Unable to copy to clipboard', err);
+            });
+    }
+</script>
 
 
 </html>
