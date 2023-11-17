@@ -31,44 +31,78 @@
        
     </style>
 </head>
+<head>
+    <title>Study AI</title>
+    <style>
+        /* Other styles remain unchanged */
+
+        /* Container styles for the left and right divs */
+        .column-container {
+            display: flex;
+        }
+
+        /* Style for the left div */
+        #result {
+            float: left;
+            width: 50%;
+            padding-right: 20px; /* Adjust the padding as needed */
+            border-right: 1px solid #ccc; /* Vertical line color */
+        }
+
+        /* Style for the right div */
+        #comprehensionDiv {
+            float: right;
+            width: 50%;
+            padding-left: 20px; /* Adjust the padding as needed */
+        }
+    </style>
+</head>
+
 <body style="text-align: center; background-color: rgb(255, 255, 255);">
     <h1 style="text-align: center; color: rgb(84, 184, 230); font-size: 60px;">Study AI</h1>
-    <i style= "font-size: 30px;">Step 1: Please upload the file you wish to study :)</i><br><br>
+    <i style="font-size: 30px;">Step 1: Please upload the file you wish to study :)</i><br><br>
     <form id="inputForm" method="POST" enctype="multipart/form-data">
         <input type="file" name="file" id="file" required>
-        <button type="submit">Upload File</button>
+        <button type="submit" style="font-size: 20px;">Upload File</button>
     </form>
-    <hr style="width:100%;text-align:center;margin-left:2px;">
-    <div id="result" style="float: left; width: 50%;">
-        <h3 style="font-size: 30px;" >Summary</h3>
-        <ul id="summary" style="text-align: start;"></ul>
-        <!-- TODO -->
-        <button id="newSumButton">Get New Summary</button>
-        <br>
-        <hr style="width:100%;text-align:center;margin-left:2px;">
-    </div>
-    <div id="comprehensionDiv" style="float: right; width: 50%;">
-        <h3 style="font-size: 30px;">Comprehension Questions</h3>
-        <ul id="questions"></ul>
-        <!-- TODO -->
-        <button id="newQuestionButton">Get New Question</button>
-        <br>
-        <hr style="width:100%;text-align:center;margin-left:2px;">
+    <hr style="width: 100%; text-align: center; margin-left: 2px;">
 
-        <h3 style="font-size: 30px;">Solutions</h3>
-        <ul id="solutions"></ul>
-        <!-- TODO -->
-        <button id="newSolButton">Get New Solution</button>
-        <br>
-        <hr style="width:100%;text-align:center;margin-left:2px;">
+    <!-- Container for left and right divs -->
+    <div class="column-container">
+        <div id="result">
+            <!-- Content for the left div -->
+            <h3 style="font-size: 30px;">Summary</h3>
+            <ul id="summary" style="text-align: start;"></ul>
+            <button id="newSumButton" style="font-size: 20px;">Get New Summary</button>
+            <br>
+            <hr style="width: 100%; text-align: center; margin-left: 2px;">
+        </div>
 
-        <h3 style="font-size: 30px;">Citations</h3>
-        <ul id="citations"></ul>
-        <hr style="width:100%;text-align:center;margin-left:2px;">
-        <br>
-        <div id="loading" style="font-size: 30px;">Loading...</div>
+        <div id="comprehensionDiv">
+            <!-- Content for the right div -->
+            <h3 style="font-size: 30px;">Comprehension Questions</h3>
+            <ul id="questions" style="text-align: start;"></ul>
+            <button id="newQuestionButton" style="font-size: 20px;">Get New Question</button>
+            <br>
+            <hr style="width: 100%; text-align: center; margin-left: 2px;">
+
+            <h3 style="font-size: 30px;">Solutions</h3>
+            <ul id="solutions" style="text-align: start;"></ul>
+            <button id="newSolButton" style="font-size: 20px;">Get New Solution</button>
+            <br>
+            <hr style="width: 100%; text-align: center; margin-left: 2px;">
+
+            <h3 style="font-size: 30px;">Citations</h3>
+            <ul id="citations" style="text-align: start;"></ul>
+            <hr style="width: 100%; text-align: center; margin-left: 2px;">
+            <br>
+            <div id="loading" style="font-size: 30px;">Loading...</div>
+            <!-- Add this button to copy all sections -->
+            <button id="copyAllButton" style="display: none; margin: auto; font-size: 20px;"
+                onclick="copyAllToClipboard()">Copy All</button>
+        </div>
     </div>
-    </body>
+</body>
     <script>
         document.getElementById("inputForm").addEventListener("submit", function (event) {
             event.preventDefault();
@@ -198,4 +232,68 @@
             });
         });
     </script>
+
+
+<script>
+    document.getElementById("inputForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const fileInput = document.getElementById("file");
+        const file = fileInput.files[0];
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        document.getElementById("loading").style.display = "block"; // Show loading sign
+
+        fetch("/process", {
+            method: "POST",
+            body: formData,
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                document.getElementById("loading").style.display = "none"; // Hide loading sign
+                document.getElementById("summary").innerHTML = data.result.map(summary => `<li>${summary}</li>`).join("<br>");
+
+                // Display comprehension questions
+                const questionsElement = document.getElementById("questions");
+                questionsElement.innerHTML = data.questions.map(question => `<li>${question}</li>`).join("<br>");
+
+                // Display solutions
+                const solutionsElement = document.getElementById("solutions");
+                solutionsElement.innerHTML = data.solutions.map(solution => `<li>${solution}</li>`).join("<br>");
+
+                // Display citations
+                const citationsElement = document.getElementById("citations");
+                citationsElement.innerHTML = data.citations.map(citation => `<li>${citation}</li>`).join("<br>");
+
+                // Show the "Copy All" button
+                document.getElementById("copyAllButton").style.display = "block";
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                document.getElementById("loading").style.display = "none"; // Hide loading sign
+            });
+    });
+</script>
+
+<script>
+        function copyAllToClipboard() {
+            const summaryText = document.getElementById("summary").innerText;
+            const questionsText = document.getElementById("questions").innerText;
+            const solutionsText = document.getElementById("solutions").innerText;
+            const citationsText = document.getElementById("citations").innerText;
+
+            const allText = `Summary:\n${summaryText}\n\nQuestions:\n${questionsText}\n\nSolutions:\n${solutionsText}\n\nCitations:\n${citationsText}`;
+
+            navigator.clipboard.writeText(allText)
+                .then(() => {
+                    alert('All sections copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Unable to copy to clipboard', err);
+                });
+        }
+    </script>
+
+
 </html>
