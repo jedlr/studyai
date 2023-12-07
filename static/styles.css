@@ -15,10 +15,8 @@ body {
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(210, 72, 72, 0.1);
     display: flex;
-    justify-content: space-between;
     align-items: center; 
-    padding: 10px 20px; /* Adjust padding as needed */
-    height: 80px;
+    padding: 5px 5px; /* Adjust padding as needed */
 }
 
 .navbar a {
@@ -31,8 +29,6 @@ body {
     transition: background-color 0.3s; /* Smooth transition on hover */
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: x-large;
-    padding-inline: 1%;
-    padding: 1%;
 }
 
 .navbar a:hover {
@@ -215,26 +211,9 @@ p {
     color: white;
 }
 
-.brand {
-    display: flex;
-    align-items: center;
-}
-
-.brand-box {
-    background-color: var(--main-color);
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.brand-text {
-    color: white;
-    font-weight: bold;
-    font-size: 1.5em;
-    padding: 10px 10px;
-}
-
 .logo {
-    width: 40px; /* Adjust the size of the logo as needed */
-    height: 40px;
+    width: 50px; /* Adjust the size of the logo as needed */
+    height: 50px;
     border-radius: 50%;
+    margin-left: auto;
 }
