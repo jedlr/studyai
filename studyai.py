@@ -34,6 +34,10 @@ def index():
 def upload():
     return render_template('upload.html', active_page='upload')
 
+@app.route('/upload')
+def upload():
+    return render_template('upload.html')
+
 @app.route('/process', methods=['POST'])
 def process():
     if 'file' not in request.files:
