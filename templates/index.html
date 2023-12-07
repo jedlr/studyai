@@ -8,12 +8,13 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="{{ url_for('index') }}">StudyAI</a>
-        <a href="{{ url_for('upload') }}">Upload</a>
+        <a href="{{ url_for('index') }}" {% if active_page == 'index' %}class="active"{% endif %}>StudyAI</a>
+        <a href="{{ url_for('upload') }}" {% if active_page == 'upload' %}class="active"{% endif %}>Upload</a>
+        <img src="/static/logo.png" alt="StudyAI Logo" class="logo">
     </div>
 
     <div class="landing-container">
-        <img src="/static/logo.png" alt="StudyAI Logo" width="200">
+        <img src="/static/logo.png" alt="StudyAI Logo" width="150">
         <h1>StudyAI</h1>
         <p>Quickly condense lengthy texts into clear summaries. Our Al generates comprehension questions 
             for deeper understanding, complete with solutions and citations. Elevate your learning effortlessly. 
