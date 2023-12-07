@@ -28,11 +28,11 @@ def mean_pooling(model_output, attention_mask):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', active_page='index')
 
 @app.route('/upload')
 def upload():
-    return render_template('upload.html')
+    return render_template('upload.html', active_page='upload')
 
 @app.route('/process', methods=['POST'])
 def process():

@@ -36,6 +36,10 @@ body {
     color: #862691;
 }
 
+.navbar a.active {
+    text-decoration: underline; 
+}
+
 .navbar-center {
     display: block;
     text-align: center;

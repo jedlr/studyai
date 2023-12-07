@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="{{ url_for('index') }}">StudyAI</a>
-        <a href="{{ url_for('upload') }}">Upload</a>
+        <a href="{{ url_for('index') }}" {% if active_page == 'index' %}class="active"{% endif %}>StudyAI</a>
+        <a href="{{ url_for('upload') }}" {% if active_page == 'upload' %}class="active"{% endif %}>Upload</a>
         <img src="/static/logo.png" alt="StudyAI Logo" class="logo">
     </div>
 
