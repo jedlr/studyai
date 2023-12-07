@@ -16,7 +16,7 @@ body {
     box-shadow: 0 4px 8px rgba(210, 72, 72, 0.1);
     display: flex;
     align-items: center; 
-    padding: 5px 5px; /* Adjust padding as needed */
+    padding: 3px; /* Adjust padding as needed */
 }
 
 .navbar a {
@@ -24,11 +24,11 @@ body {
     display: block;
     color: #263B91;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
     transition: background-color 0.3s; /* Smooth transition on hover */
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: x-large;
+    font-size: large;
 }
 
 .navbar a:hover {
@@ -58,13 +58,13 @@ body {
 }
 
 .landing-container h1 {
-    font-size: 3em;
-    margin-bottom: 20px; /* Add margin for spacing */
+    font-size: 50px;
+    margin-bottom: 15px; /* Add margin for spacing */
 }
 
 .landing-container p {
-    font-size: 1.5em;
-    margin-bottom: 30px; /* Add margin for spacing */
+    font-size: 25px;
+    margin-bottom: 15px; /* Add margin for spacing */
 }
 
 .get-started-btn {
@@ -152,7 +152,7 @@ hr {
 }
 
 h3 {
-    font-size: 30px;
+    font-size: 25px;
     padding-bottom: 10px; 
     text-align: center;
     color: var(--main-color);
@@ -176,21 +176,20 @@ input {
     background-color: #ffffff;
     color: black;
     border-radius: 20px;
-    padding: 10px 10px;
+    padding: 5px 5px;
 }
 
 #file {
-    font-size: x-large;
+    font-size: large;
     color: #fff;
 }
 
 button {
-    font-size: 20px;
-    margin: 10px;
+    font-size: 15px;
     background-color: var(--main-color);
     color: #fff;
     border-radius: 20px; 
-    padding: 15px 15px; 
+    padding: 12px 12px; 
     font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -211,7 +210,7 @@ button {
 p {
     text-align: center;
     font-family: Verdana, sans-serif;
-    font-size: x-large;
+    font-size: large;
     color: white;
 }
 
