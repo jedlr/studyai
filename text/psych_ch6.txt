@@ -1,0 +1,150 @@
+How Do We Learn?
+The ability to learn is crucial for all animals. To survive, animals need to learn things
+such as which types of foods are dangerous, when it is safe to sleep, and which sounds
+signal potential dangers. Learning is central to almost all aspects of human existence. It
+makes possible our basic abilities (such as walking and speaking) and our complex ones
+(such as flying airplanes, performing surgery, or maintaining intimate relationships).
+Learning also shapes many aspects of daily life: clothing choices, musical tastes, cultural
+values about either exploiting or preserving the environment, and so on.
+Learning Results from Experience
+Psychologists define learning as a relatively enduring change in behavior, resulting
+from experience. Learning occurs when an animal benefits from experience so that
+its behavior is better adapted to the environment. In other words, the animal is more
+prepared to deal with the environment in the future. For example, the animal may be
+better able to predict when certain events are likely to happen.
+Learning theory arose in the early twentieth century. Its development was partly
+a result of the dissatisfaction among some psychologists with the widespread use of
+introspection, such as that being used by the structuralists. Likewise, many psychologists were critical of Freud’s psychodynamic approach. Freud and his followers used
+verbal report techniques, such as dream analysis and free association. They aimed to
+assess the unconscious mental processes that they believed were the primary determinants of behavior. John B. Watson (1924), however, argued that Freudian theory
+was unscientific and ultimately meaningless. He also rejected any psychological
+enterprise that focused on things that could not be observed directly, such as people’s
+mental experiences. Although he acknowledged that thoughts and beliefs exist, he
+believed they could not be studied using scientific methods. According to Watson,
+observable behavior was the only valid indicator of psychological activity.
+As discussed in Chapter 1, Watson founded behaviorism on such principles. This
+school of thought was based on the belief that humans and nonhuman animals are
+born with the potential to learn just about anything. In formulating his ideas, ­ Watson
+was influenced by the seventeenth-century philosopher John Locke. An infant,
+according to Locke, is a tabula rasa (Latin for “blank slate”). Born knowing nothing,
+the infant acquires all of its knowledge through sensory experiences (FIGURE 6.2).
+The essence of learning is that it enables us to gain knowledge about the world. We
+learn in three basic ways (FIGURE 6.3).
+NONASSOCIATIVE LEARNING The simplest form of learning occurs after repeated
+exposure to a single stimulus, or event. For example, if you move to a new house by some train tracks, the rumble of passing trains might disturb your sleep. After you
+live in the house for a while, you quit waking up to the sound of trains. This action,
+nonassociative ­ learning, is a response to something in the environment. The change in
+response to the stimulus is a form of learning.
+ASSOCIATIVE LEARNING The second type of learning is understanding how
+stimuli, or events, are related. For example, your dog runs for the door when you pick
+up the leash. You might associate working with getting paid. Associative ­ learning is
+the linking of two events that, in general, take place one right after the other. Associations develop through conditioning, a process in which environmental stimuli
+and behavioral responses become connected.
+OBSERVATIONAL LEARNING The third major type of learning occurs by watching others. Observational learning is acquiring or changing a behavior after exposure to
+another individual performing that behavior. For example, you might learn the steps
+to a new type of dance by watching a YouTube video. By watching others in ­ person or
+In the media, people may learn what to appreciate or what to fear.
+Habituation and Sensitization Are
+Models of Nonassociative Learning
+Nonassociative learning, the simplest form of learning, occurs when you gain new information after repeated exposure to a single stimulus, or event. The two most ­ common
+forms of nonassociative learning are habituation and sensitization (FIGURE 6.4).
+Habituation is a decrease in behavioral response after repeated exposure to a
+­ stimulus. We tend to notice new things around us. If something is neither rewarding nor harmful, habituation leads us to ignore it (FIGURE 6.5). Recall the discussion
+of sensory adaptation in Chapter 5. Habituation is unlike sensory adaptation in that
+you can still perceive the stimuli. You just do not respond to them because you have
+learned that they are not important.
+We constantly habituate to meaningless events around us. If you have lived in or
+visited a major city, you were probably very reactive to sirens at first. When you heard
+one, you looked around to see if there was immediate danger. But soon you no longer
+reacted to sirens. In fact, you barely noticed them. It is not that you do not hear them.
+You just do not respond because you have habituated to them.
+What happens if the background noise suddenly stops? You are likely to immediately notice the change. The increase in a response because of a change in something
+familiar is dishabituation. This process is important in the animal world. For instance,
+birds might stop singing when they detect a predator, such as a hawk. The absence of bird song alerts other animals, such as squirrels, to potential danger.
+All animals show habituation and dishabituation. Indeed, we have learned a lot
+about how nonassociative learning works by studying simple invertebrates such as
+the aplysia, a small marine snail (FIGURE 6.6). Habituation can be demonstrated quite
+easily by repeatedly touching an aplysia. The first few touches cause it to withdraw its
+gills. After about 10 touches, it stops responding, and this lack of response lasts about
+2 to 3 hours. Repeated habituation trials can lead to a state of habituation that lasts
+several weeks.
+Sensitization is an increase in behavioral response after
+exposure to a stimulus (FIGURE 6.7). The stimuli that most
+often lead to sensitization are those that are threatening or
+painful. If you are studying and smell something burning, you
+probably will not habituate to this smell. In fact, you might
+focus even greater attention on your sense of smell to assess
+the possible threat of fire, and you will be highly vigilant for
+any indication of smoke or of flames. In general, sensitization
+leads to heightened responsiveness to other stimuli. Giving a
+strong electric shock to an aplysia’s tail leads to sensitization.
+Following the shock, a mild touch anywhere on the body will
+cause the aplysia to withdraw its gills.
+What activity at the synapse leads to nonassociative
+learning? The neurobiologist Eric Kandel and colleagues (Carew, Pinsker, & Kandel, 1972; Kandel, Dudai, & ­ Mayford, 2014) have used the aplysia to study the neural
+basis of nonassociative learning. Their findings have shown that alterations in the
+functioning of the synapse lead to habituation and sensitization. For both types of
+simple learning, presynaptic neurons alter their neurotransmitter release. A reduction in neurotransmitter release leads to habituation. An increase in neurotransmitter release leads to sensitization. Knowing the neural basis of simple learning
+gives us the building blocks to understand more-complex learning processes in both
+human and nonhuman animals. For this research, Kandel received the Nobel Prize
+in 2000.
+Behavioral Responses
+Are Conditioned
+We learn predictive associations through conditioning, the process that connects
+environmental stimuli to behavior (FIGURE 6.8).
+In classical conditioning, also known as Pavlovian conditioning, a neutral ­ stimulus
+elicits a response because it has become associated with a stimulus that already
+­ produces that response. In other words, you learn that one event predicts another.
+For example, you learn that certain music plays during scary scenes in a movie. Now
+you feel anxious when you hear that music. 
+The term Pavlovian is derived from the name of Ivan Pavlov. John B. Watson
+­ developed his ideas about behaviorism after reading the work of Pavlov, who had won
+a Nobel Prize in 1904 for his research on the digestive system. Pavlov was interested
+in the salivary reflex. This automatic, unlearned response occurs when a food stimulus is presented to a hungry animal, including a human. For his work on the digestive
+system, Pavlov created an apparatus that collected saliva from dogs. With this device,
+he measured the different amounts of saliva that resulted when he placed various
+types of food into a dog’s mouth (FIGURE 6.9).
+As with so many major scientific advances, Pavlov’s contribution to psychology
+started with a simple observation. One day he was annoyed to realize that the laboratory dogs were salivating before they tasted their food. Indeed, the dogs started salivating the moment a lab technician walked into the room or whenever they saw the
+bowls that usually contained food. Pavlov’s genius was in recognizing that this behavioral response was a window to the working mind. Unlike inborn reflexes, salivation
+at the sight of a bowl or of a person is not automatic. Therefore, that response must
+have been acquired through experience. This insight led Pavlov to devote the next
+30 years of his life to studying the basic principles of learning.
+Pavlov conducted the basic research on conditioning using the salivary reflex, such
+as happens when seeing a tasty cake causes your mouth to start watering. In these
+studies, a neutral stimulus unrelated to the salivary reflex, such as the clicking of a
+metronome, is presented along with a stimulus that reliably produces the reflex, such
+as food. The neutral stimulus can be anything that the animal can see or hear as long as it is not something that is usually associated with being fed. This pairing is called
+a conditioning trial. It is repeated a number of times. Then come the test trials. Here,
+the metronome sound is presented alone and the salivary reflex is measured. Pavlov
+found that under these conditions, the sound of the metronome on its own produced
+salivation. This type of learning is now referred to as classical conditioning, or Pavlovian conditioning.
+Pavlov called the salivation elicited by food the unconditioned response (UR).
+The response is “unconditioned” because it is unlearned. It occurs without prior
+training and is an automatic behavior, such as some simple reflexes. Similarly, the
+food is the unconditioned stimulus (US). Normally, without any training, the food leads
+to salivation (UR). Thus, before learning takes place, the US produces the UR.
+Because the clicking of the metronome produces salivation only after training, it
+is the conditioned stimulus (CS). That is, before conditioning, the clicking of the metronome is unrelated to salivation. After learning takes place, the clicking serves as a
+“signal” that food is about to become available. The increased salivation that occurs
+when only the conditioned stimulus is presented is the conditioned response (CR). It
+is the response that has been learned. In the case of Pavlov’s dogs, both the CR and
+the UR were salivation. However, the CR and the UR are not always identical: The CR
+usually is weaker than the UR. Thus, the metronome sound produces less saliva than
+the food does. (The steps just described are outlined in “The Methods of Psychology:
+Pavlov’s Classical Conditioning.”)
+Suppose you are watching a movie in which a character is attacked. As you watch
+the attack scene, you feel tense, anxious, and perhaps disgusted. In this scenario, the
+frightening scene and your feelings occur naturally. That is, the stimulus and your
+response to it are unconditioned. Now imagine a piece of music that does not initially have much effect on you but that you hear in the movie just before each frightening scene. (A good example is the musical theme from the classic 1975 movie
+Jaws; FIGURE 6.10.) Eventually, you will begin to feel tense and anxious as soon as
+you hear the music. You have learned that the music, the conditioned stimulus, predicts scary scenes. Because of this learning, you feel the tension and anxiety, the
+conditioned response. As in Pavlov’s studies, the CS (music) produces a somewhat
+different emotional response than the US (the scary scene). The response may be
+weaker. It may be more a feeling of apprehension than one of fear or disgust. If you
+later hear this music in a different context, such as on the radio, you will again feel
+tense and anxious even though you are not watching the movie. You have been classically conditioned to be anxious when you hear the music. Because this association
+is learned, your anxious feeling from the music will typically be weaker than your
+response to the scary scene.
+
+

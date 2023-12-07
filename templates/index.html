@@ -1,201 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Study AI</title>
-    <style>
-        #loading {
-            display: none;
-        }
-        #summary {
-        list-style-position: inside; /* Align bullet points inside the list item */
-        padding-left: 0; /* Reset default padding */
-    }
-
-    #summary li,
-    #questions li,
-    #solutions li,
-    #citations li {
-    font-size: 24px; /* Adjust the font size for bullet points */
-    list-style-position: inside;
-    padding-left: 0;
-    margin-left: 20px;
-    }
-
-     /* CSS styles for list items (questions, solutions, and citations) */
-     #questions li,
-        #solutions li,
-        #citations li {
-            list-style-position: inside; /* Align bullet points inside the list item */
-            padding-left: 0; /* Reset default padding */
-            margin-left: 20px; /* Adjust the left margin for better alignment */}
-       
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>StudyAI</title>
 </head>
-<body style="text-align: center; background-color: rgb(255, 255, 255);">
-    <h1 style="text-align: center; color: rgb(84, 184, 230); font-size: 60px;">Study AI</h1>
-    <i style= "font-size: 30px;">Step 1: Please upload the file you wish to study :)</i><br><br>
-    <form id="inputForm" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file" id="file" required>
-        <button type="submit">Upload File</button>
-    </form>
-    <hr style="width:100%;text-align:center;margin-left:2px;">
-    <div id="result" style="float: left; width: 50%;">
-        <h3 style="font-size: 30px;" >Summary</h3>
-        <ul id="summary" style="text-align: start;"></ul>
-        <!-- TODO -->
-        <button id="newSumButton">Get New Summary</button>
-        <br>
-        <hr style="width:100%;text-align:center;margin-left:2px;">
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">StudyAI</a>
+        <a href="{{ url_for('upload') }}">Upload</a>
     </div>
-    <div id="comprehensionDiv" style="float: right; width: 50%;">
-        <h3 style="font-size: 30px;">Comprehension Questions</h3>
-        <ul id="questions"></ul>
-        <!-- TODO -->
-        <button id="newQuestionButton">Get New Question</button>
-        <br>
-        <hr style="width:100%;text-align:center;margin-left:2px;">
 
-        <h3 style="font-size: 30px;">Solutions</h3>
-        <ul id="solutions"></ul>
-        <!-- TODO -->
-        <button id="newSolButton">Get New Solution</button>
-        <br>
-        <hr style="width:100%;text-align:center;margin-left:2px;">
-
-        <h3 style="font-size: 30px;">Citations</h3>
-        <ul id="citations"></ul>
-        <hr style="width:100%;text-align:center;margin-left:2px;">
-        <br>
-        <div id="loading" style="font-size: 30px;">Loading...</div>
+    <div class="landing-container">
+        <img src="/static/logo.png" alt="StudyAI Logo" width="200">
+        <h1>StudyAI</h1>
+        <p>Quickly condense lengthy texts into clear summaries. Our Al generates comprehension questions 
+            for deeper understanding, complete with solutions and citations. Elevate your learning effortlessly. 
+            Try StudyAI now for concise, effective text comprehension!</p>
+        <a class="get-started-btn" href="{{ url_for('upload') }}">Get Started</a>
     </div>
-    </body>
-    <script>
-        document.getElementById("inputForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            const fileInput = document.getElementById("file");
-            const file = fileInput.files[0];
-
-            const formData = new FormData();
-            formData.append('file', file);
-
-            document.getElementById("loading").style.display = "block"; // Show loading sign
-
-            fetch("/process", {
-                method: "POST",
-                body: formData,
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    document.getElementById("loading").style.display = "none"; // Hide loading sign
-                    document.getElementById("summary").innerHTML = data.result.map(summary => `<li>${summary}</li>`).join("<br>");
-
-                    // Display comprehension questions
-                    const questionsElement = document.getElementById("questions");
-                    questionsElement.innerHTML = data.questions.map(question => `<li>${question}</li>`).join("<br>");
-
-                    // Display solutions
-                    const solutionsElement = document.getElementById("solutions");
-                    solutionsElement.innerHTML = data.solutions.map(solution => `<li>${solution}</li>`).join("<br>");
-
-                    // Display citations
-                    const citationsElement = document.getElementById("citations");
-                    citationsElement.innerHTML = data.citations.map(citation => `<li>${citation}</li>`).join("<br>");
-                })
-                .catch((error) => {
-                    console.error("Error:", error);
-                    document.getElementById("loading").style.display = "none"; // Hide loading sign
-                });
-        });
-    </script>
-    <script>
-        document.getElementById("newSumButton").addEventListener("click", function () {
-            // Show the loading sign
-            document.getElementById("loading").style.display = "block";
-    
-            // Clear the previous summary by setting its content to an empty string
-            const summaryElement = document.getElementById("summary");
-            summaryElement.innerHTML = "";
-    
-            // Make a request to your Flask application's /process endpoint
-            fetch("/process", {
-                method: "POST",
-                body: new FormData(document.getElementById("inputForm")), // Use the form data
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                // Hide the loading sign
-                document.getElementById("loading").style.display = "none";
-    
-                // Update the content of the #summary element with the new summary
-                const summaryElement = document.getElementById("summary");
-                summaryElement.innerHTML = data.result.map(summary => `<li>${summary}</li>`).join("<br>");
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-                // Hide the loading sign in case of an error
-                document.getElementById("loading").style.display = "none";
-            });
-        });
-    </script>
-    
-    <script>
-        document.getElementById("newQuestionButton").addEventListener("click", function () {
-            // Show the loading sign
-            document.getElementById("loading").style.display = "block";
-    
-            // Clear the previous questions by setting the content of the #questions element to an empty string
-            const questionsElement = document.getElementById("questions");
-            questionsElement.innerHTML = "";
-
-            // Make a request to your Flask application's /process endpoint
-            fetch("/process", {
-                method: "POST",
-                body: new FormData(document.getElementById("inputForm")), // Use the form data
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                // Hide the loading sign
-                document.getElementById("loading").style.display = "none";
-    
-                // Update the content of the #questions element with the new questions
-                const questionsElement = document.getElementById("questions");
-                questionsElement.innerHTML = data.questions.map(question => `<li>${question}</li>`).join("<br>");
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-                // Hide the loading sign in case of an error
-                document.getElementById("loading").style.display = "none";
-            });
-        });
-    </script>
-    <script>
-        document.getElementById("newSolButton").addEventListener("click", function () {
-            // Show the loading sign
-            document.getElementById("loading").style.display = "block";
-    
-            // Clear the previous solutions by setting the content of the #solutions element to an empty string
-            const solutionsElement = document.getElementById("solutions");
-            solutionsElement.innerHTML = "";
-
-            // Make a request to your Flask application's /process endpoint
-            fetch("/process", {
-                method: "POST",
-                body: new FormData(document.getElementById("inputForm")), // Use the form data
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                // Hide the loading sign
-                document.getElementById("loading").style.display = "none";
-    
-                // Update the content of the #solutions element with the new solutions
-                const solutionsElement = document.getElementById("solutions");
-                solutionsElement.innerHTML = data.solutions.map(solution => `<li>${solution}</li>`).join("<br>");
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-                // Hide the loading sign in case of an error
-                document.getElementById("loading").style.display = "none";
-            });
-        });
-    </script>
+</body>
 </html>

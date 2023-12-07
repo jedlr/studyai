@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Study AI - Upload</title>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">StudyAI</a>
+        <a href="{{ url_for('upload') }}">Upload</a>
+        <div class="brand">
+            <div class="brand-box">
+                <span class="brand-text">StudyAI</span>
+            </div>
+            <img src="/static/logo.png" alt="StudyAI Logo" class="logo">
+        </div>
+    </div>
+
+    <p>Please upload the file you wish to study :)</p>
+    <form id="uploadForm" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="file" required>
+        <button type="submit" id="uploadButton">Upload File</button>
+    </form>
+ 
+   <!-- Container for left and right divs -->
+   <div class="column-container">
+    <div id="result" class="left-column">
+        <!-- Content for the left div -->
+        <h3>Summary</h3>
+        <ul id="summary"></ul>
+        <button id="newSumButton">New Summary</button>
+    </div>
+    <div class="right-column">
+        <!-- Right column container -->
+        <div id="questionsDiv">
+            <!-- Content for the first row -->
+            <h3>Comprehension Questions</h3>
+            <ul id="questions"></ul>
+            <button id="newQuestionButton">New Question</button>
+        </div>
+        <div id="solutionsDiv">
+            <!-- Content for the second row -->
+            <h3>Solutions</h3>
+            <ul id="solutions"></ul>
+            <button id="newSolButton">New Solution</button>
+        </div>
+        <div id="citationsDiv">
+            <!-- Content for the third row -->
+            <h3>Citations</h3>
+            <ul id="citations"></ul>
+            <br>
+        </div>
+        <button id="copyAllButton" style="display: none;" onclick="copyAllToClipboard()">Copy All</button>
+    </div>
+</div>
+
+<div id="loading" class="loading-container">
+    <img src="/static/loading.gif" alt="loading icon">
+</div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

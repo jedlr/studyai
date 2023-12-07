@@ -30,6 +30,10 @@ def mean_pooling(model_output, attention_mask):
 def index():
     return render_template('index.html')
 
+@app.route('/upload')
+def upload():
+    return render_template('upload.html')
+
 @app.route('/process', methods=['POST'])
 def process():
     if 'file' not in request.files:
