@@ -1,5 +1,7 @@
 from flask import Flask, request, render_template, jsonify
-import openai
+from openai import OpenAI
+
+client = OpenAI(api_key='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')
 from transformers import AutoTokenizer, AutoModel
 import torch
 import torch.nn.functional as F
@@ -11,7 +13,7 @@ app = Flask(__name__)
 # Carlos API
 #openai.api_key = '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'
 #Johana API
-openai.api_key = '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'
+
 
 # Load the Sentence Transformers model
 sentence_transformer_model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
@@ -59,16 +61,14 @@ def process():
 def generate_summary(text):
     # Decode the file content from bytes to a string
     text = text.decode('utf-8')
-
+    print("text:", text)
     # Use the OpenAI API to generate a summary
-    response = openai.Completion.create(
-        engine="text-davinci-002",
-        prompt=f"Generate detailed summary for the following text'{text}' in bullet point format",
-        max_tokens=700,  # Adjust the token limit as needed
-        n=1,
-    )
+    response = client.completions.create(model="text-davinci-002",
+    prompt=f"Generate detailed summary for the following text'{text}' in bullet point format",
+    max_tokens=700,  # Adjust the token limit as needed
+    n=1)
     result_summary = response.choices[0].text.strip()
-
+    print(response)
     # Split the summary into bullet points
     bullet_points = [point.strip('-') for point in result_summary.split('\n')]
 
@@ -76,12 +76,10 @@ def generate_summary(text):
 
 def generate_q(text):
     # Use the OpenAI API to generate comprehension questions
-    response = openai.Completion.create(
-        engine="text-davinci-002",
-        prompt=f"Generate one comprehension question for the following text:\n{text}",
-        max_tokens=200,  # Adjust the token limit as needed
-        n=1,  # Number of questions to generate
-    )
+    response = client.completions.create(model="text-davinci-002",
+    prompt=f"Generate one comprehension question for the following text:\n{text}",
+    max_tokens=200,  # Adjust the token limit as needed
+    n=1)
 
     questions = [choice.text for choice in response.choices]
 
@@ -91,12 +89,10 @@ def generate_sol(questions, text):
     # Generate solutions for the comprehension questions using OpenAI
     solutions = []
     for question in questions:
-        response = openai.Completion.create(
-            engine="text-davinci-002",
-            prompt=f"Answer the following question based on the text:\n{question}\n\n{text}",
-            max_tokens=200,  # Adjust the token limit as needed
-            n=1,
-        )
+        response = client.completions.create(model="text-davinci-002",
+        prompt=f"Answer the following question based on the text:\n{question}\n\n{text}",
+        max_tokens=200,  # Adjust the token limit as needed
+        n=1)
         solutions.append(response.choices[0].text)
 
     return solutions
