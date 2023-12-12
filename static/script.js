@@ -19,13 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("loading").style.display = "none"; // Hide loading sign
                 document.getElementById("summary").innerHTML = data.result.map(summary => `<li>${summary}</li>`).join("<br>");
 
-                // Display comprehension questions
+                // Display numbered comprehension questions
                 const questionsElement = document.getElementById("questions");
-                questionsElement.innerHTML = data.questions.map(question => `<li>${question}</li>`).join("<br>");
+                questionsElement.innerHTML = data.questions.join("<br>");
 
-                // Display solutions
+                // Display numbered solutions
                 const solutionsElement = document.getElementById("solutions");
-                solutionsElement.innerHTML = data.solutions.map(solution => `<li>${solution}</li>`).join("<br>");
+                solutionsElement.innerHTML = data.solutions.join("<br>");
 
                 // Display citations
                 const citationsElement = document.getElementById("citations");
@@ -154,3 +154,43 @@ function copyAllToClipboard() {
             console.error('Unable to copy to clipboard', err);
         });
 }
+
+document.getElementById("submitQuestionButton").addEventListener("click", function () {
+
+    const userQuestion = document.getElementById("userQuestionInput").value;
+
+    const questionsElement = document.getElementById("questions");
+    questionsElement.innerHTML += `<li>${userQuestion}</li>`;
+
+    if (!userQuestion) {
+        alert("Please enter a question.");
+        return;
+    }
+
+    // Send the question to the server
+    fetch('/submit_question', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `question=${encodeURIComponent(userQuestion)}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert("Error: " + data.error);
+        } else {
+            // Add the solution to the solutions list
+            const solutionsElement = document.getElementById("solutions");
+            solutionsElement.innerHTML += `<li>${data.answer}</li>`;
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+
+    // Clear the input field after submission
+    document.getElementById("userQuestionInput").value = '';
+});
+
+
