@@ -80,11 +80,11 @@ def generate_summary(text):
     print("text:", text)
     # Use the OpenAI API to generate a summary
     response = client.completions.create(model="text-davinci-003",
-    prompt=f"Generate detailed summary for the following text'{text}' in bullet point format",
+    prompt=f"Generate detailed summary for the following text'{text}' using dashes format",
     max_tokens=700,  # Adjust the token limit as needed
     n=1)
     result_summary = response.choices[0].text.strip()
-    print(response)
+    print(result_summary)
     # Split the summary into bullet points
     bullet_points = [point.strip('-') for point in result_summary.split('\n')]
 
