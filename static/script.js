@@ -19,17 +19,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("loading").style.display = "none"; // Hide loading sign
                 document.getElementById("summary").innerHTML = data.result.map(summary => `<li>${summary}</li>`).join("<br>");
 
-                // Display numbered comprehension questions
+                // Display comprehension questions
                 const questionsElement = document.getElementById("questions");
-                questionsElement.innerHTML = data.questions.join("<br>");
+                questionsElement.innerHTML = data.questions.map(question => `<li>${question}</li>`).join("<br>");
 
-                // Display numbered solutions
+                // Display solutions
                 const solutionsElement = document.getElementById("solutions");
-                solutionsElement.innerHTML = data.solutions.join("<br>");
+                solutionsElement.innerHTML = data.solutions.map(solution => `<li>${solution}</li>`).join("<br>");
 
                 // Display citations
                 const citationsElement = document.getElementById("citations");
                 citationsElement.innerHTML = data.citations.map(citation => `<li>${citation}</li>`).join("<br>");
+                
 
                 // Show the "Copy All" button
                 document.getElementById("copyAllButton").style.display = "block";
