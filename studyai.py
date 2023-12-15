@@ -2,10 +2,10 @@ from flask import Flask, request, render_template, jsonify, session
 from openai import OpenAI
 
 client = OpenAI(api_key='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')
-# from transformers import AutoTokenizer, AutoModel
-# import torch
-# import torch.nn.functional as F
-# from sentence_transformers import SentenceTransformer
+from transformers import AutoTokenizer, AutoModel
+import torch
+import torch.nn.functional as F
+from sentence_transformers import SentenceTransformer
 
 app = Flask(__name__)
 app.secret_key = 'cool'
@@ -16,18 +16,18 @@ app.secret_key = 'cool'
 #Johana API
 
 
-# # Load the Sentence Transformers model
-# sentence_transformer_model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
+# Load the Sentence Transformers model
+sentence_transformer_model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
 
-# # Load the Hugging Face model and tokenizer
-# hf_model = AutoModel.from_pretrained('sentence-transformers/all-mpnet-base-v2')
-# hf_tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-mpnet-base-v2')
+# Load the Hugging Face model and tokenizer
+hf_model = AutoModel.from_pretrained('sentence-transformers/all-mpnet-base-v2')
+hf_tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-mpnet-base-v2')
 
-# # Mean Pooling - Take attention mask into account for correct averaging
-# def mean_pooling(model_output, attention_mask):
-#     token_embeddings = model_output[0]  # First element of model_output contains all token embeddings
-#     input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
-#     return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+# Mean Pooling - Take attention mask into account for correct averaging
+def mean_pooling(model_output, attention_mask):
+    token_embeddings = model_output[0]  # First element of model_output contains all token embeddings
+    input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+    return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
 
 @app.route('/')
 def index():
@@ -115,18 +115,32 @@ def generate_sol(questions, text):
 
     return solutions
 
-def generate_citation(solutions, text):
-    citations = []
-    for solution in solutions:
-        prompt = f"Extract a citation for the following answer in the context of the provided text:\nAnswer: {solution}\nText: {text}"
-        response = client.completions.create(model="text-davinci-003",  # Updated model version
-                                             prompt=prompt,
-                                             max_tokens=150,  # Adjust as needed
-                                             n=1)
-        citation = response.choices[0].text.strip()
-        citations.append(citation)
+def generate_citation(solutions, file_content):
+    # Decode the file content from bytes to a string
+    text = file_content.decode('utf-8')
 
-    print("citations:", citation)
+    # Generate citations based on sentence embeddings
+    citations = []
+
+    # Tokenize and compute token embeddings for sentences in the text
+    sentences = text.split('.')
+    sentence_embeddings = sentence_transformer_model.encode(sentences, convert_to_tensor=True)
+
+    for solution in solutions:
+        # Calculate the embedding for the solution
+        solution_tokens = hf_tokenizer(solution, return_tensors='pt', padding=True, truncation=True)
+        with torch.no_grad():
+            model_output = hf_model(**solution_tokens)
+        solution_embedding = mean_pooling(model_output, solution_tokens['attention_mask'])
+
+        # Find the most similar sentence based on cosine similarity
+        similarity_scores = F.cosine_similarity(sentence_embeddings, solution_embedding)
+        best_match_idx = torch.argmax(similarity_scores)
+
+        # Use the best-matching sentence as the citation
+        citation_sentence = sentences[best_match_idx].strip() + '.'
+        citations.append(citation_sentence)
+
     return citations
 
 def generate_answer(question, text):
