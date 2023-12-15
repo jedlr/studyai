@@ -77,14 +77,12 @@ def process():
 def generate_summary(text):
     # Decode the file content from bytes to a string
     text = text.decode('utf-8')
-    print("text:", text)
     # Use the OpenAI API to generate a summary
     response = client.completions.create(model="text-davinci-003",
     prompt=f"Generate detailed summary for the following text'{text}' using dashes format",
     max_tokens=700,  # Adjust the token limit as needed
     n=1)
     result_summary = response.choices[0].text.strip()
-    print(result_summary)
     # Split the summary into bullet points
     bullet_points = [point.strip('-') for point in result_summary.split('\n')]
 
@@ -125,8 +123,6 @@ def generate_citation(solutions, text):
                                              n=1)
         citation = response.choices[0].text.strip()
         citations.append(citation)
-
-    print("citations:", citation)
     return citations
 
 def generate_answer(question, text):
