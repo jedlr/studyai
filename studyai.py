@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, jsonify, session
 from openai import OpenAI
 
-client = OpenAI(api_key='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')
+client = OpenAI(api_key='your_api_key_here')
 # from transformers import AutoTokenizer, AutoModel
 # import torch
 # import torch.nn.functional as F
