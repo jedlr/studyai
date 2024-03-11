@@ -6,6 +6,7 @@ StudyAI leverages OpenAI's powerful AI models to transform the way students enga
 - **Comprehension Questions:** Engage with automatically generated questions to test your understanding, complete with solutions for self-assessment.
 - **Solutions and Citations:** Enhance your learning with detailed explanations and citations, ensuring a comprehensive study session.
 - **Interactive Learning:** Submit your own questions to the AI and receive instant answers, enabling a two-way learning process.
+- **Copy to Clipboard:** Easily compile and copy summaries, questions, solutions, and citations directly to your clipboard for efficient study guide creation.
 
 ## Getting Started
 
